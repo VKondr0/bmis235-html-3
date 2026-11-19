@@ -25,13 +25,171 @@
 
 <p>I picked Formula 1 for my website because I really like watching F1. I enjoy the races, especially when something unexpected happens.</p>
 
-<p>On this site, I wanted to share a little about the drivers, teams, and tracks that make F1 interesting to me.</p>
+<p>On this site, I wanted to share a little about the drivers, teams and tracks that make F1 interesting to me.</p>
 
-<p>If you want to check race results or the schedule, you can visit the <a href="https://www.formula1.com/">official F1 website</a>.</p>
+<p>You can also check the <a href="https://www.formula1.com/">F1 website</a> for race results and the schedule.</p>
 
-<p>Have a question? <a href="mailto:vkondratiuk@zagmail.gonzaga.edu">Email me</a>.</p>
+<p>You can <a href="mailto:vkondratiuk@zagmail.gonzaga.edu">email me</a> here too.</p>
 
-<div class="showcase"></div>
+<div class="showcase">
+
+<!-- css cards -->
+<style>
+.showcase {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #171c24;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.showcase .f1-title {
+    color: white;
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 24px;
+}
+
+.showcase .f1-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.showcase .f1-card {
+    display: block;
+    width: 100%;
+    height: 140px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    perspective: 800px;
+    font-family: inherit;
+}
+
+.showcase .f1-inner {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.showcase .f1-card.is-flipped .f1-inner {
+    transform: rotateY(180deg);
+}
+
+.showcase .f1-front,
+.showcase .f1-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border: 2px solid #e10600;
+    border-radius: 10px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    text-align: center;
+}
+
+.showcase .f1-front {
+    background-color: #252b35;
+}
+
+.showcase .f1-back {
+    background-color: #e10600;
+    transform: rotateY(180deg);
+}
+
+.showcase .f1-front strong {
+    font-size: 17px;
+}
+
+.showcase .f1-back span {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.showcase .f1-card:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+@media (max-width: 520px) {
+    .showcase .f1-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .showcase .f1-card {
+        height: 100px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .showcase .f1-inner {
+        transition: none;
+    }
+}
+</style>
+
+<!-- html -->
+<h2 class="f1-title">F1 drivers I like</h2>
+
+<div class="f1-cards">
+    <button class="f1-card" type="button" aria-pressed="false">
+        <span class="f1-inner">
+            <span class="f1-front">
+                <strong>Max Verstappen</strong>
+            </span>
+            <span class="f1-back">
+                <span>I like how aggressive he is on track</span>
+            </span>
+        </span>
+    </button>
+
+    <button class="f1-card" type="button" aria-pressed="false">
+        <span class="f1-inner">
+            <span class="f1-front">
+                <strong>Lewis Hamilton</strong>
+            </span>
+            <span class="f1-back">
+                <span>It's fun watching him fight for positions</span>
+            </span>
+        </span>
+    </button>
+
+    <button class="f1-card" type="button" aria-pressed="false">
+        <span class="f1-inner">
+            <span class="f1-front">
+                <strong>Charles Leclerc</strong>
+            </span>
+            <span class="f1-back">
+                <span>His qualifying laps are crazy sometimes</span>
+            </span>
+        </span>
+    </button>
+</div>
+
+<!-- js flipping -->
+<script>
+document.querySelectorAll(".showcase .f1-card").forEach((card) => {
+    card.addEventListener("click", () => {
+        const flipped = card.classList.toggle("is-flipped");
+        card.setAttribute("aria-pressed", String(flipped));
+    });
+});
+</script>
+
+</div>
 
 <footer>Built by Vitalii Kondratiuk &middot; BMIS 235</footer>
 
