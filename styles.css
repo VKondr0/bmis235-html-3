@@ -10,6 +10,7 @@ nav {
     background-color: #171c24;
     padding: 14px;
     text-align: center;
+    border-bottom: 2px solid #e10600;
 }
 
 nav img {
@@ -17,6 +18,17 @@ nav img {
     margin: 4px;
     vertical-align: middle;
     border-radius: 8px;
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+nav img:hover {
+    transform: translateY(-4px) scale(1.04);
+    filter: brightness(1.15);
+    box-shadow: 0 6px 14px rgba(225, 6, 0, 0.3);
+}
+
+nav img:active {
+    transform: scale(0.98);
 }
 
 nav a {
@@ -27,6 +39,7 @@ h1 {
     color: #e10600;
     text-align: center;
     font-size: 40px;
+    letter-spacing: 1px;
 }
 
 p {
@@ -38,6 +51,7 @@ p {
 
 p a {
     color: #ff6b66;
+    transition: color 0.2s ease;
 }
 
 p a:hover {
@@ -49,4 +63,6 @@ footer {
     font-size: 14px;
     color: #a0a0a0;
     margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #30343b;
 }
