@@ -36,9 +36,17 @@ p {
     line-height: 1.5;
 }
 
+p a {
+    color: #ff6b66;
+}
+
+p a:hover {
+    color: #ffffff;
+}
+
 footer {
     text-align: center;
     font-size: 14px;
     color: #a0a0a0;
-    margin-top: 40px;   
+    margin-top: 40px;
 }
